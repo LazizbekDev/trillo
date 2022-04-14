@@ -1,0 +1,112 @@
+@import "../vars.scss";
+
+.hotel-view {
+    background: #fff;
+    flex: 1;
+
+    height: 80rem;
+
+
+    .gallery {
+        display: flex;
+
+        &__item {
+            height: 200px;
+            overflow: hidden;
+        }
+        &__photo {
+            display: block;
+        }
+    }
+
+    // hotel overview
+
+    .overview {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid $gray-light-2;
+
+        &__heading {
+            font-size: 2.25rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 1.5rem 3rem;
+            color: $gray-dark-2;
+        }
+
+        &__stars {
+            margin-right: auto;
+            color: $primary;
+        }
+
+        &__location {
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            color: $primary;
+        }
+
+        &__rating {
+            background: $primary;
+            color: white;
+            margin-left: 3rem;
+            padding: 0 2.25rem;
+
+            display: flex;
+            align-items: center;
+            align-self: stretch;
+            flex-direction: column;
+            justify-content: center;
+
+            &-num {
+                font-size: 2.25rem;
+                font-weight: 300;
+            }
+
+            &-count {
+                font-size: 0.8rem;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    .btn-inline {
+        border: none;
+        color: $primary;
+        border-bottom: 1px solid currentColor;
+        padding-bottom: 2px;
+        display: inline-block;
+        background: transparent;
+        cursor: pointer;
+        transition: all .2s ease;
+
+        &:hover {
+            color: $gray-dark-1;
+        }
+
+        &:focus {
+            outline: none;
+            animation-name: pulstate;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+        }
+    }
+}
+
+@keyframes pulstate {
+    0% {
+        transform: scale(1);
+        box-shadow: none;
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 1rem 4rem rgba($color: #000000, $alpha: .5);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: none;
+    }
+}

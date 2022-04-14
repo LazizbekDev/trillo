@@ -1,0 +1,75 @@
+@import "../vars.scss";
+
+.sidebar {
+    background: $gray-dark-1;
+    color: #fff;
+    flex: 0 0 18%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .side-nav {
+        font-size: 1.4rem;
+        list-style: none;
+        margin-top: 3.5rem;
+
+        &__item {
+            position: relative;
+            z-index: 100;
+
+            &:not(:last-child) {
+                margin-bottom: 1rem;
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 3px;
+                background: $primary;
+                transform: scaleY(0);
+                transition: transform .2s,
+                    width .4s cubic-bezier(1, 0, 0, 1) .2s,
+                    background .1s;
+                z-index: -1;
+            }
+
+            &:hover::before,
+            &--active::before {
+                transform: scaleY(1);
+                width: 100%;
+            }
+
+            &:active::before {
+                background-color: $primary-light;
+            }
+        }
+
+        &__link span{
+            margin-left: 2rem;
+        }
+
+        &__link:link,
+        &__link:visited {
+            color: $gray-light-1;
+            text-transform: uppercase;
+            display: block;
+            padding: 1.5rem 3rem;
+
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    // copy right
+
+    .copy-right {
+        font-size: 1.2rem;
+        padding: 2.5rem;
+        text-align: center;
+        color: $gray-light-4;
+    }
+}
