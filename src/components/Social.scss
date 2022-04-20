@@ -1,0 +1,15 @@
+@import "../vars.scss";
+
+.profile {
+    width: 100%;
+    min-height: 65vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+
+    p {
+        font-size: 1.3rem;
+        color: $gray-dark-1;
+    }
+}

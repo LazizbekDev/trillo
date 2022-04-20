@@ -4,6 +4,7 @@
     background: $gray-dark-1;
     color: #fff;
     flex: 0 0 18%;
+    position: relative;
 
     display: flex;
     flex-direction: column;
@@ -13,6 +14,8 @@
         font-size: 1.4rem;
         list-style: none;
         margin-top: 3.5rem;
+        position: sticky;
+        top: 3.5rem;
 
         &__item {
             position: relative;
@@ -37,14 +40,9 @@
                 z-index: -1;
             }
 
-            &:hover::before,
-            &--active::before {
+            &:hover::before {
                 transform: scaleY(1);
                 width: 100%;
-            }
-
-            &:active::before {
-                background-color: $primary-light;
             }
         }
 
@@ -56,11 +54,44 @@
         &__link:visited {
             color: $gray-light-1;
             text-transform: uppercase;
-            display: block;
             padding: 1.5rem 3rem;
 
             display: flex;
             align-items: center;
+        }
+
+        @media only screen and (max-width: $md) {
+            position: relative;
+            top: auto;
+            display: flex;
+            margin: 0;
+
+            &__item {
+                flex: 1;
+                &:not(:last-child) {
+                    margin: 0;
+                }
+            }
+
+            &__link:link,
+            &__link:visited {
+                justify-content: center;
+                padding: 2rem;
+            }
+        }
+
+        @media only screen and (max-width: $sm) {
+            &__link:link,
+            &__link:visited {
+                flex-direction: column;
+                padding: 1rem;
+
+                span {
+                    margin-top: .7rem;
+                    margin-left: 0;
+                    word-wrap: break-word;
+                }
+            }
         }
     }
 
@@ -71,5 +102,22 @@
         padding: 2.5rem;
         text-align: center;
         color: $gray-light-4;
+
+        @media only screen and (max-width: $md) {
+            display: none;
+        }
     }
+    
+    @media only screen and (max-width: $md) {
+        top: 0;
+        position: sticky;
+        background: rgba(0, 0, 0, 0.651);
+        backdrop-filter: blur(6px);
+        z-index: 9999;
+    }
+}
+
+.actived {
+    background-color: $primary-light;
+    height: 100%;
 }

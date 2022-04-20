@@ -1,42 +1,44 @@
 import React from 'react'
-import {RiHotelFill, RiFlightLandFill, RiMap2Fill} from 'react-icons/ri'
-import {MdCarRental} from 'react-icons/md'
+import {RiHotelFill} from 'react-icons/ri'
+import {FaConnectdevelop} from 'react-icons/fa'
+import {BsInstagram, BsTelegram} from 'react-icons/bs'
 import './Sidebar.scss'
+import { NavLink } from 'react-router-dom'
 
 const Sidebar = () => {
   return (
     <nav className="sidebar">
       <ul className="side-nav">
-        <li className="side-nav__item side-nav__item--active">
-          <a href="#" className="side-nav__link">
+        <li className="side-nav__item">
+          <NavLink to="/" className={(navData) => navData.isActive ? "actived side-nav__link" : "side-nav__link"}>
             <RiHotelFill size={'2rem'} />
-            <span>Hotel</span>
-          </a>
+            <span>home</span>
+          </NavLink>
         </li>
         <li className="side-nav__item">
-          <a href="#" className="side-nav__link">
-            <RiFlightLandFill size={'2rem'} />
-            <span>Flight</span>
-          </a>
+          <NavLink to="/insta" className={(navData) => navData.isActive ? "actived side-nav__link" : "side-nav__link"}>
+            <BsInstagram size={'2rem'} />
+            <span>Instagram</span>
+          </NavLink>
         </li>
         <li className="side-nav__item">
-          <a href="#" className="side-nav__link">
-            <MdCarRental size='2rem' />
-            <span>Car rental</span>
-          </a>
+          <NavLink to="/telegram" className={(navData) => navData.isActive ? "actived side-nav__link" : "side-nav__link"}>
+            <BsTelegram size='2rem' />
+            <span>Telegram</span>
+          </NavLink>
         </li>
         <li className="side-nav__item">
-          <a href="#" className="side-nav__link">
-            <RiMap2Fill size='2rem' />
-            <span>Tours</span>
-          </a>
+          <NavLink to="/resume" className={(navData) => navData.isActive ? "actived side-nav__link" : "side-nav__link"}>
+            <FaConnectdevelop size='2rem' />
+            <span>resume</span>
+          </NavLink>
         </li>
       </ul>
 
       <div className="copy-right">
         &copy; 2017 by Trillo. All rights reserved
         <div>Learner
-          <a href="github.com/lazizbekdev">LazizbekDev</a>
+          <a href="https://github.com/lazizbekdev"> LazizbekDev </a>
           &reg; 2021
         </div>
       </div>

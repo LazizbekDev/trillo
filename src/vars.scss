@@ -11,4 +11,13 @@ $gray-dark-1: #333;
 $gray-dark-2: #777;
 $gray-dark-3: #999;
 
-$shadow-dark: 0 2rem 6rem rgba($color: #000000, $alpha: .3);
+$shadow-dark: 0 2rem 6rem rgba(#000000, .3);
+$shadow-light: 0 2rem 5rem rgba(#000000, .06);
+
+$line: $gray-light-2;
+
+$xl: 75em;
+$lg: 68.75em;
+$md: 56.25em;
+$sm: 37.5em;
+$xs: 31.25em;

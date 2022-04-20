@@ -4,18 +4,18 @@
     background: #fff;
     flex: 1;
 
-    height: 80rem;
-
-
     .gallery {
         display: flex;
+        overflow: hidden;
 
-        &__item {
-            height: 200px;
-            overflow: hidden;
-        }
         &__photo {
+            transition: .2s !important;
             display: block;
+
+            &:hover {
+                transform: scale(1.3);
+                filter: brightness(50%);
+            }
         }
     }
 
@@ -33,6 +33,11 @@
             letter-spacing: 1px;
             padding: 1.5rem 3rem;
             color: $gray-dark-2;
+
+            @media only screen and (max-width: $sm) {
+                font-size: 1.8rem;
+                padding: 1.25rem 2rem;
+            }
         }
 
         &__stars {
@@ -68,6 +73,18 @@
                 font-size: 0.8rem;
                 text-transform: uppercase;
             }
+
+            @media only screen and (max-width: $sm) {
+                padding: 1.5rem;
+
+                &-num {
+                    font-size: 1.5rem;
+                }
+
+                &-count {
+                    font-size: 0.5rem;
+                }
+            }
         }
     }
 
@@ -80,9 +97,18 @@
         background: transparent;
         cursor: pointer;
         transition: all .2s ease;
+        margin: 0 auto;
 
         &:hover {
             color: $gray-dark-1;
+
+            svg {
+                margin-left: 1rem;
+            }
+        }
+
+        svg {
+            transition: .2s;
         }
 
         &:focus {
@@ -108,5 +134,241 @@
     100% {
         transform: scale(1);
         box-shadow: none;
+    }
+}
+
+.details {
+    display: flex;
+    background-color: $gray-light-1;
+    border-bottom: $line;
+    padding: 4.5rem;
+    color: $gray-dark-3;
+    font-size: 1.4rem;
+
+    @media only screen and (max-width: $md) {
+        padding: 3rem;
+    }
+
+    @media only screen and (max-width: $sm) {
+        flex-direction: column;
+    }
+}
+
+.description {
+    flex: 0 0 60%;
+    background: white;
+    box-shadow: $shadow-light;
+    margin-right: 4.5rem;
+    padding: 4.5rem;
+
+    .paragraph:not(:last-of-type) {
+        margin-bottom: 2rem;
+    }
+
+    .list {
+        list-style: none;
+        margin: 3rem 0;
+        padding: 3rem 0;
+        border-top: $line;
+        border-bottom: $line;
+
+        display: flex;
+        flex-wrap: wrap;
+
+        &_item {
+            flex: 0 0 50%;
+
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
+            overflow: hidden;
+
+            svg {
+                color: $primary;
+            }
+        }
+    }
+
+    .recommend {
+        display: flex;
+        align-items: center;
+        font-size: 1.3rem;
+
+        &_count {
+            margin-right: auto;
+        }
+
+        &_friends {
+            display: flex;
+            margin-left: auto;
+        }
+    }
+
+    @media only screen and (max-width: $md) {
+        padding: 2rem;
+        margin-right: 3rem;
+    }
+
+    @media only screen and (max-width: $sm) {
+        margin-right: 0;
+        margin-bottom: 3rem;
+
+        .recommend {
+            flex-wrap: wrap;
+
+            &_friends {
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+.avatar {
+    box-sizing: content-box;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border: 4px solid white;
+
+    &:not(:last-child) {
+        margin-right: -2.2rem;
+    }
+}
+
+.user-review {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .review {
+        background-color: white;
+        box-shadow: $shadow-light;
+        padding: 3rem;
+        margin-bottom: 3.5rem;
+        position: relative;
+        overflow: hidden;
+
+
+        &-text {
+            position: relative;
+            z-index: 10;
+            margin-bottom: 2rem;
+        }
+
+        &-user {
+            display: flex;
+            align-items: center;
+
+            img {
+                border: none;
+            }
+
+            &-box {
+                margin-left: 3rem;
+                margin-right: auto;
+                font-weight: 1.2rem;
+
+                .user-name {
+                    text-transform: uppercase;
+                    font-weight: 600;
+                    font-style: 1.3rem;
+                    color: $gray-dark-2;
+                }
+
+                .user-date {
+                    font-size: 1.1rem;
+                }
+            }
+        }
+
+        .rating {
+            font-size: 2rem;
+            color: $primary;
+        }
+
+        &::before {
+            position: absolute;
+            content: "\201C";
+            font-size: 20rem;
+            top: -2rem;
+            left: -1rem;
+            line-height: 1;
+            font-family: sans-serif;
+            color: $gray-light-3;
+        }
+
+        @media only screen and (max-width: $md) {
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+    }
+}
+
+.footer {
+    padding: 3rem 0;
+    text-align: center;
+
+    .last-words {
+        font-size: 1.5rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        margin-bottom: 2.5rem;
+    }
+
+    @media only screen and (max-width: $md) {
+        padding: 2rem 0;
+    }
+}
+
+.btn {
+    overflow: hidden;
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    border-radius: 100px;
+    border: none;
+    background-image: linear-gradient(to right, $primary-light, $primary-dark);
+    color: white;
+    user-select: none;
+    position: relative;
+
+    &>* {
+        display: inline-block;
+        transition: all .2s ease;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+    }
+
+    &_visible {
+        padding: 2rem 7.5rem;
+    }
+
+    &_invisible {
+        position: absolute;
+        padding: 2rem 0;
+        left: 0;
+        top: -100%;
+    }
+
+    &:hover {
+        background-image: linear-gradient(to left, $primary-light, $primary-dark);
+    }
+
+    &:hover &_invisible {
+        top: 0 !important;
+    }
+
+    &:hover &_visible {
+        transform: translateY(100%);
+    }
+
+    &:focus {
+        outline: none;
+        animation-name: pulstate;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
     }
 }

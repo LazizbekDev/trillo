@@ -1,0 +1,53 @@
+@import "../../vars.scss";
+
+.btn {
+    overflow: hidden;
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    border-radius: 100px;
+    border: none;
+    background-image: linear-gradient(to right, $primary-light, $primary-dark);
+    color: white;
+    user-select: none;
+    position: relative;
+
+    & >* {
+        display: inline-block;
+        transition: all .2s ease;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+    }
+
+    &_visible {
+        padding: 2rem 7.5rem;
+    }
+
+    &_invisible {
+        position: absolute;
+        padding: 2rem 0;
+        left: 0;
+        top: -100%;
+    }
+
+    &:hover {
+        background-image: linear-gradient(to left, $primary-light, $primary-dark);
+    }
+
+    &:hover &_invisible {
+        top: 0 !important;
+    }
+
+    &:hover &_visible {
+        transform: translateY(100%);
+    }
+
+    &:focus {
+        outline: none;
+        animation-name: pulstate;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+    }
+}
